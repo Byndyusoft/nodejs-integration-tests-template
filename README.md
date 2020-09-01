@@ -1,4 +1,4 @@
-# nodejs-integration-tests-template
+# TypeScript template for integration tests
 
 ## Preparation
 Tests requires [Github Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) at environment variables with grants to **create**, **read** and **delete** repositories. 
