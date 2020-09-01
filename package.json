@@ -1,0 +1,52 @@
+{
+  "name": "nodejs-integration-tests-template",
+  "version": "1.0.0",
+  "description": "Integration tests template written on TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest",
+    "test:dev": "cross-env NODE_ENV=dev npm test",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix && prettier '*/**/*.{js,ts,tsx,md}' -w --ignore-path ./.gitignore --loglevel silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Byndyusoft/nodejs-integration-tests-template.git"
+  },
+  "keywords": [
+    "integration",
+    "tests",
+    "node"
+  ],
+  "author": "Byndyusoft",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Byndyusoft/nodejs-integration-tests-template/issues"
+  },
+  "homepage": "https://github.com/Byndyusoft/nodejs-integration-tests-template#readme",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^26.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.6.0",
+    "eslint-import-resolver-typescript": "^2.2.1",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-jsdoc": "^30.2.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.13",
+    "prettier": "^2.0.5",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "jest": "^26.4.2",
+    "jest-extended": "^0.11.5",
+    "ts-jest": "^26.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
