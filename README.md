@@ -5,7 +5,7 @@ Tests require [Github Access Token](https://docs.github.com/en/github/authentica
 
 Environment variables can be set by creating `.env` file in root directory with variables from `.env.example` file.
 
-## Localy running
+## Locally running
 To run tests execute the following commands in your terminal:
 
 ```
