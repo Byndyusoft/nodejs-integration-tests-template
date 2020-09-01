@@ -29,9 +29,9 @@ export class GithubClient {
   /**
    * Just for example
    */
-  async authentificate() {
+  async authentificate(): Promise<boolean> {
     this.isAuthentificated = true;
-    return Promise.resolve(true);
+    return true;
   }
 
   async getRepository(owner: string, repositoryName: string): Promise<GithubRepository | null> {
@@ -64,7 +64,7 @@ export class GithubClient {
     return { name: data.name, description: data.description, private: data.private };
   }
 
-  async deleteRepository(repositoryName) {
+  async deleteRepository(repositoryName: string): Promise<void> {
     await this.axiosClient.delete(`/repos/${this.username}/${repositoryName}`);
   }
 }
