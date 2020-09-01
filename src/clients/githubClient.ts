@@ -1,11 +1,9 @@
-import axios, { AxiosInstance, AxiosError } from "axios";
-import Axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
 export class GithubClient {
   isAuthentificated: boolean;
   username: string;
   accessToken: string;
-  apibaseUrl = "https://api.github.com";
 
   private axiosClient: AxiosInstance;
 
