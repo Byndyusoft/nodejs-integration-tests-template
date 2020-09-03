@@ -1,5 +1,7 @@
-import 'jest-extended'
+import "jest-extended";
+
 import { GithubClient, GithubRepository } from "../src/clients/githubClient";
+import { privateRepository } from "../src/generators/repositoryGenerator";
 import { githubUsername, githubAccessToken } from "../src/config";
 
 const githubClient = new GithubClient(githubUsername, githubAccessToken);
@@ -13,11 +15,9 @@ describe("github testing", () => {
   const repositoryName = "some-test-repo";
 
   beforeAll(async () => {
-    testRepository = await githubClient.createRepository({
-      name: repositoryName,
-      description: "Repo created from integration tests",
-      private: true,
-    });
+    const repository = privateRepository(repositoryName).withDescription("Repo created from integration tests");
+
+    testRepository = await githubClient.createRepository(repository);
   });
 
   describe("when repository created", () => {
@@ -28,15 +28,8 @@ describe("github testing", () => {
 
     test("shown in user repositories", async () => {
       const userRepositories = await githubClient.getListRepositories();
-      expect(userRepositories).toContainValue(
-        expect.objectContaining({
-          name: testRepository.name,
-          description: testRepository.description,
-          private: expect.toBeBoolean(),
-        }),
-      );
+      expect(userRepositories).toContainValue(expect.objectContaining({ name: testRepository.name }));
     });
-
   });
 
   afterAll(async () => {
